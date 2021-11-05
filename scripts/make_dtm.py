@@ -65,7 +65,7 @@ if __name__ == "__main__":
 
     count_vec = CountVectorizer(tokenizer=lambda text: text.split(" "))
 
-    dtm_numpy = count_vec.fit_transform(lemmatized_text).todense()
+    dtm_numpy = count_vec.fit_transform(lemmatized_texts).todense()
     dtm_numpy = dtm_numpy / dtm_numpy.sum(axis=1)
 
     vocab = [token for token, _ in sorted(count_vec.vocabulary_.items(), key=lambda entry: entry[1])]
